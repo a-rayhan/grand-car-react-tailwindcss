@@ -9,7 +9,7 @@ const Banner = () => {
                 <div className="absolute bg-black top-0 left-0 w-full h-full opacity-60"></div>
 
                 <div className="max-w-7xl mx-auto md:px-6 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-center">
-                    <p className="text-sm lg:text-xl mb-1 text-[#7a63f1]">
+                    <p className="text-sm lg:text-xl mb-1 text-white">
                         Find your perfect car today
                     </p>
 
