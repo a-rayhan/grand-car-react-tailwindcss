@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import CarDetails from "../Pages/CarDetails/CarDetails";
 import BrandCategory from "../Components/BrandCategory/BrandCategory";
 import BrandCars from "../Pages/BrandCars/BrandCars";
+import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addnew',
-                element: <AddNew />
+                element: <PrivateRoute><AddNew /></PrivateRoute>
             },
             {
                 path: '/cart',
-                element: <Cart />
+                element: <PrivateRoute><Cart /></PrivateRoute>
             },
             {
                 path: '/login',
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:detailsId',
-                element: <CarDetails />,
+                element: <PrivateRoute><CarDetails /></PrivateRoute>,
                 loader: () => fetch('http://127.0.0.1:5000/cardata')
             },
             {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/brand/:brandName',
-                element: <BrandCars />,
+                element: <PrivateRoute><BrandCars /></PrivateRoute>,
                 loader: () => fetch('http://127.0.0.1:5000/cardata')
             }
         ]

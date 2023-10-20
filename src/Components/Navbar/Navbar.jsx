@@ -1,9 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiGrid } from "react-icons/fi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Hooks/AuthProvider";
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(!false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     return (
         <div className="shadow-lg">
             <div className="max-w-7xl mx-auto">
@@ -93,13 +108,42 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    <div className="hidden lg:flex items-center gap-6">
+                    <div className="hidden xl:block text-lg font-medium">
+                        {
+                            user ? <>
+                                <div className="flex justify-center items-center gap-4 cursor-pointer">
+                                    <div className="dropdown dropdown-end">
+                                        <div className="avatar online m-1" tabIndex={0}>
+                                            <div className="w-14 rounded-full">
+                                                <img src={user?.photoURL} />
+                                            </div>
+                                        </div>
+                                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box">
+                                            <li className="py-4 px-8">{user?.displayName}</li>
+                                            <li className="py-4 px-8">{user?.email}</li>
+                                            <li>
+                                                <NavLink onClick={handleLogOut} to='/login' className='py-4 px-8'>
+                                                    Logout
+                                                </NavLink>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </> : <>
+                                <NavLink to='/login' className={({ isActive, isPending }) => isPending ? "text-black" : isActive ? "bg-[#7a63f1] text-[#f5f4fa] py-2 px-4 rounded" : "py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium"}>
+                                    Login
+                                </NavLink>
+                            </>
+                        }
+                    </div>
+
+                    {/* <div className="hidden lg:flex items-center gap-6">
                         <li className="list-none">
                             <NavLink to='/login' className='py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium'>
                                 Login
                             </NavLink>
                         </li>
-                    </div>
+                    </div> */}
                 </nav>
             </div>
         </div>

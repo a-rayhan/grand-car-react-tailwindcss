@@ -1,7 +1,70 @@
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Hooks/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
+
+    const [error, setError] = useState('');
+    const [emailError, setEmailError] = useState('');
+
+    const { googleLogIn, userRegister, updateUserProfile } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+
+    const handleSocialLogin = (item) => {
+        item()
+            .then(result => {
+                Swal.fire({
+                    title: 'success!',
+                    text: 'Register with Google succesfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget)
+
+        const name = form.get('name');
+        const img = form.get('img');
+        const email = form.get('email');
+        const password = form.get('password');
+
+        if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
+            setError('You should at least six characters, uppercase, lowercase and number');
+        }
+        else {
+            setError('');
+
+            if (email) {
+                userRegister(email, password)
+                    .then(result => {
+                        updateUserProfile(name, img)
+                            .then(() => {
+                                Swal.fire({
+                                    title: 'success!',
+                                    text: 'Registered succesfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Ok'
+                                })
+                                navigate('/')
+                            })
+                    })
+                    .catch(error => {
+                        setEmailError('Email already in use')
+                    })
+            }
+        }
+    }
+
     return (
         <div className="max-w-7xl mx-auto px-6 py-28">
             <div className="bg-black max-w-3xl mx-auto p-10 md:p-20 rounded-3xl">
@@ -16,7 +79,7 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <form action="">
+                    <form onSubmit={handleRegister} action="">
                         <div className="w-full md:w-[500px] mx-auto mb-3">
                             <div className="flex flex-col">
                                 <label className="text-white mb-1">
@@ -46,9 +109,9 @@ const Register = () => {
                                 <input type="email" name="email" placeholder="Enter your email" className="max-w-2xl bg-[#7a63f1] py-4 px-6 rounded-lg text-white placeholder:text-lg placeholder:text-white" required />
                             </div>
 
-                            {/* <p className="px-4 text-[#ff566a] text-sm mt-2">
+                            <p className="px-4 text-[#ff566a] text-sm mt-2">
                                 {emailError}
-                            </p> */}
+                            </p>
                         </div>
 
                         <div className="md:w-[500px] mx-auto">
@@ -60,9 +123,9 @@ const Register = () => {
                                 <input type="password" name="password" placeholder="Enter your password" className="max-w-2xl bg-[#7a63f1] py-4 px-6 rounded-lg text-white placeholder:text-lg placeholder:text-white" required />
                             </div>
 
-                            {/* <p className="px-4 text-[#ff566a] text-sm mt-2">
+                            <p className="px-4 text-[#ff566a] text-sm mt-2">
                                 {error}
-                            </p> */}
+                            </p>
                         </div>
 
                         <div className="flex justify-center items-center mt-7">
@@ -78,7 +141,7 @@ const Register = () => {
                         </p>
                     </div>
 
-                    <div className="md:w-[500px] bg-transparent border-2 border-[#7a63f1] hover:bg-[#7a63f1] rounded-xl flex justify-center items-center gap-x-4 mt-10 mx-auto">
+                    <div onClick={() => handleSocialLogin(googleLogIn)} className="md:w-[500px] bg-transparent border-2 border-[#7a63f1] hover:bg-[#7a63f1] rounded-xl flex justify-center items-center gap-x-4 mt-10 mx-auto">
                         <div className="bg-white p-1 rounded-full">
                             <FcGoogle className="text-2xl" />
                         </div>
