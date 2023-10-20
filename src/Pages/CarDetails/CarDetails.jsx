@@ -36,7 +36,7 @@ const CarDetails = () => {
                             ${car.price}
                         </button>
 
-                        <button to='/details' className="py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium">
+                        <button className="py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium">
                             Add to cart
                         </button>
                     </div>
