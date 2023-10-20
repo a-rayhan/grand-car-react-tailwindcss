@@ -29,7 +29,7 @@ const Register = () => {
                 console.log(userEmail);
                 const email = { userEmail };
 
-                fetch('http://127.0.0.1:5000/cardata', {
+                fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

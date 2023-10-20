@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/shop',
                 element: <ShopProducts />,
-                loader: () => fetch('http://127.0.0.1:5000/cardata')
+                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/addnew',
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:detailsId',
                 element: <PrivateRoute><CarDetails /></PrivateRoute>,
-                loader: () => fetch('http://127.0.0.1:5000/cardata')
+                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/brand',
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
             {
                 path: '/brand/:brandName',
                 element: <PrivateRoute><BrandCars /></PrivateRoute>,
-                loader: () => fetch('http://127.0.0.1:5000/cardata')
+                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdateCar /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://127.0.0.1:5000/cardata/${params.id}`)
+                loader: ({ params }) => fetch(`https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata/${params.id}`)
             }
         ]
     }

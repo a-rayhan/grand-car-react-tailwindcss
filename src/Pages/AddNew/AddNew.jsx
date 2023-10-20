@@ -19,7 +19,7 @@ const AddNew = () => {
         const newCarItem = { name, brand, type, price, rating, photo, details };
         console.log(newCarItem);
 
-        fetch('http://127.0.0.1:5000/cardata', {
+        fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

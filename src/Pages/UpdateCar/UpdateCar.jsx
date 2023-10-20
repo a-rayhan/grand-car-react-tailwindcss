@@ -24,7 +24,7 @@ const UpdateCar = () => {
         const updateCar = { name, brand, type, price, rating, photo, details };
         console.log(updateCar);
 
-        fetch(`http://127.0.0.1:5000/cardata/${car._id}`, {
+        fetch(`https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata/${car._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
