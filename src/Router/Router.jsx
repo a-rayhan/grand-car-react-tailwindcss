@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/shop',
                 element: <ShopProducts />,
-                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
+                loader: () => fetch('https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/addnew',
@@ -34,7 +34,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <PrivateRoute><Cart /></PrivateRoute>
+                element: <PrivateRoute><Cart /></PrivateRoute>,
+                loader: () => fetch('https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cartdata')
             },
             {
                 path: '/login',
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:detailsId',
                 element: <PrivateRoute><CarDetails /></PrivateRoute>,
-                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
+                loader: () => fetch('https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/brand',
@@ -57,12 +58,12 @@ const router = createBrowserRouter([
             {
                 path: '/brand/:brandName',
                 element: <PrivateRoute><BrandCars /></PrivateRoute>,
-                loader: () => fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata')
+                loader: () => fetch('https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cardata')
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdateCar /></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata/${params.id}`)
+                loader: ({ params }) => fetch(`https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cardata/${params.id}`)
             }
         ]
     }

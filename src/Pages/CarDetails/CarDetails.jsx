@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../Hooks/AuthProvider";
+import Swal from "sweetalert2";
 
 const CarDetails = () => {
 
@@ -9,10 +11,49 @@ const CarDetails = () => {
 
     const { detailsId } = useParams();
 
+    const { user } = useContext(AuthContext);
+    // console.log(user);
+
     useEffect(() => {
         const findCarId = carData.find(car => car._id == detailsId);
         setCar(findCarId);
     }, [detailsId, carData]);
+
+    const handleAddToCart = (car, user) => {
+        console.log(car, user);
+
+        const name = car.name;
+        const brand = car.brand;
+        const type = car.type;
+        const price = car.price;
+        const rating = car.rating;
+        const photo = car.photo;
+        const details = car.details;
+        const email = user.email;
+
+        console.log(name, brand, type, price, rating, photo, details, email);
+        const cartItem = { name, brand, type, price, rating, photo, details, email };
+
+        fetch('https://grand-car-server-7hsb50j7j-abu-rayhans-projects.vercel.app/cartdata', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cartItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Cart Added succesfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
+    }
 
 
     return (
@@ -36,7 +77,7 @@ const CarDetails = () => {
                             ${car.price}
                         </button>
 
-                        <button className="py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium">
+                        <button onClick={() => handleAddToCart(car, user)} className="py-2 px-4 bg-[#7a63f1] text-[#f5f4fa] cursor-pointer rounded text-lg font-medium">
                             Add to cart
                         </button>
                     </div>

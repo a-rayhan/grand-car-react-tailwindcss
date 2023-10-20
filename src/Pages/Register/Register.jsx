@@ -22,26 +22,7 @@ const Register = () => {
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 })
-
-                const user = result.user;
-                console.log(user);
-                const userEmail = user.email;
-                console.log(userEmail);
-                const email = { userEmail };
-
-                fetch('https://grand-car-server-dph9foz33-abu-rayhans-projects.vercel.app/cardata', {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(email)
-                })
-
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-
-                    })
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message);

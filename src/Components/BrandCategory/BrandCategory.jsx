@@ -15,7 +15,7 @@ const BrandCategory = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-6" data-aos="fade-up"
-        data-aos-duration="1000">
+            data-aos-duration="1000">
             <div className="py-28">
                 <div>
                     <h1 className="text-3xl font-semibold mb-2">
@@ -23,7 +23,7 @@ const BrandCategory = () => {
                     </h1>
 
                     <p className="text-lg max-w-3xl">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio reprehenderit deleniti accusantium suscipit officia voluptas neque pariatur, et voluptates!
+                        Highlights trusted industry leaders, offering brief descriptions and links for seeking quality products and services.
                     </p>
                 </div>
 
@@ -67,7 +67,7 @@ const BrandCategory = () => {
 
                         <div className='text-center lg:text-left'>
                             <h3 className='text-xl font-semibold'>
-                            Lexus
+                                Lexus
                             </h3>
 
                             <p>
@@ -83,7 +83,7 @@ const BrandCategory = () => {
 
                         <div className='text-center lg:text-left'>
                             <h3 className='text-xl font-semibold'>
-                            Mercedes
+                                Mercedes
                             </h3>
 
                             <p>
@@ -99,7 +99,7 @@ const BrandCategory = () => {
 
                         <div className='text-center lg:text-left'>
                             <h3 className='text-xl font-semibold'>
-                            Mini
+                                Mini
                             </h3>
 
                             <p>
@@ -115,7 +115,7 @@ const BrandCategory = () => {
 
                         <div className='text-center lg:text-left'>
                             <h3 className='text-xl font-semibold'>
-                            Porsche
+                                Porsche
                             </h3>
 
                             <p>

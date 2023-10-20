@@ -5,7 +5,7 @@ import { AiOutlineCustomerService } from "react-icons/ai";
 const WhyChooseUs = () => {
     return (
         <div className="bg-[#ebe8fc]" data-aos="fade-up"
-        data-aos-duration="1000">
+            data-aos-duration="1000">
             <div className="max-w-7xl mx-auto px-6 py-28">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-semibold mb-2">
@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
                             </p>
 
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam doloremque at voluptatibus laboriosam doloribus!
+                                Discover a diverse range of car brands, from classic to modern, offering unique styles, features, and performance options for every preference.
                             </p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
                             </p>
 
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam doloremque at voluptatibus laboriosam doloribus!
+                                Our Best Rate Guarantee ensures you'll receive the lowest price, with unbeatable value, for your peace of mind and savings.
                             </p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
                             </p>
 
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam doloremque at voluptatibus laboriosam doloribus!
+                                Experience exceptional customer support that's available 24/7, ready to assist you with a smile, making your satisfaction our top priority.
                             </p>
                         </div>
                     </div>
