@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-[#f4f4f4] pt-14 pb-5">
+            <footer className="bg-[#f4f4f4] pt-14 pb-5" data-aos="fade-up"
+        data-aos-duration="1000">
                 <div className="max-w-7xl mx-auto mb-6 px-6">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                         <div>

@@ -2,13 +2,16 @@ import { NavLink } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="bg-slate-700">
+        <div className="bg-slate-700" data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="800"
+        data-aos-offset="0">
             <div className="w-full h-[50vh] lg:h-[70vh] relative">
                 <img src="https://images.unsplash.com/photo-1601641467525-5782e1d4a3d2?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="w-full h-full object-cover" />
 
                 <div className="absolute bg-black top-0 left-0 w-full h-full opacity-60"></div>
 
-                <div className="max-w-7xl mx-auto md:px-6 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-center">
+                <div className="max-w-7xl mx-auto md:px-6 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-center" >
                     <p className="text-sm lg:text-xl mb-1 text-white">
                         Find your perfect car today
                     </p>

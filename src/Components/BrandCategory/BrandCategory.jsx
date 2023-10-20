@@ -14,7 +14,8 @@ const BrandCategory = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up"
+        data-aos-duration="1000">
             <div className="py-28">
                 <div>
                     <h1 className="text-3xl font-semibold mb-2">

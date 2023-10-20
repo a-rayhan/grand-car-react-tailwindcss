@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto">
                 <nav className="px-6 py-7 flex justify-between items-center">
                     <div>
-                        <NavLink to='/' className='text-2xl font-semibold'>
+                        <NavLink to='/' className='text-3xl font-semibold'>
                             GrandCar
                         </NavLink>
                     </div>

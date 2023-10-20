@@ -4,7 +4,8 @@ import { AiOutlineCustomerService } from "react-icons/ai";
 
 const WhyChooseUs = () => {
     return (
-        <div className="bg-[#ebe8fc]">
+        <div className="bg-[#ebe8fc]" data-aos="fade-up"
+        data-aos-duration="1000">
             <div className="max-w-7xl mx-auto px-6 py-28">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-semibold mb-2">

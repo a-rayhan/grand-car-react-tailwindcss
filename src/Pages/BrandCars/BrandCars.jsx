@@ -23,7 +23,8 @@ const BrandCars = () => {
     }, [cars])
 
     return (
-        <div className="">
+        <div className="" data-aos="fade-up"
+        data-aos-duration="1000">
 
             {
                 cars.length && <>

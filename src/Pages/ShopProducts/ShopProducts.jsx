@@ -6,7 +6,8 @@ const ShopProducts = () => {
     const carData = useLoaderData();
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-28">
+        <div className="max-w-7xl mx-auto px-6 py-28" data-aos="fade-up"
+        data-aos-duration="800">
 
             <p className="text-lg mb-5 px-3">
                 Showing all {carData.length} results

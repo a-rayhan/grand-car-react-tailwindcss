@@ -43,7 +43,8 @@ const AddNew = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-28">
+        <div className="max-w-7xl mx-auto px-6 py-28" data-aos="fade-up"
+        data-aos-duration="1000">
 
             <div className="p-5 sm:p-10 xl:p-20 bg-[#f4f4f4] rounded">
                 <div className="mb-10">
