@@ -18,10 +18,30 @@ const Register = () => {
             .then(result => {
                 Swal.fire({
                     title: 'success!',
-                    text: 'Register with Google succesfully',
+                    text: 'Register succesfully',
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 })
+
+                const user = result.user;
+                console.log(user);
+                const userEmail = user.email;
+                console.log(userEmail);
+                const email = { userEmail };
+
+                fetch('http://127.0.0.1:5000/cardata', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(email)
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                    })
             })
             .catch(error => {
                 console.log(error.message);

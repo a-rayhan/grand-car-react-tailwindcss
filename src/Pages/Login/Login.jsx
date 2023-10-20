@@ -57,6 +57,7 @@ const Login = () => {
                             confirmButtonText: 'Ok'
                         })
                         navigate(location?.state ? location.state : '/')
+
                     })
                     .catch(error => {
                         setError('Wrong email address')
