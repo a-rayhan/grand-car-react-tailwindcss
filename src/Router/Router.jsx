@@ -11,6 +11,7 @@ import BrandCategory from "../Components/BrandCategory/BrandCategory";
 import BrandCars from "../Pages/BrandCars/BrandCars";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UpdateCar from "../Pages/UpdateCar/UpdateCar";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
                 path: '/brand/:brandName',
                 element: <PrivateRoute><BrandCars /></PrivateRoute>,
                 loader: () => fetch('http://127.0.0.1:5000/cardata')
+            },
+            {
+                path: '/update/:id',
+                element: <PrivateRoute><UpdateCar /></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://127.0.0.1:5000/cardata/${params.id}`)
             }
         ]
     }
