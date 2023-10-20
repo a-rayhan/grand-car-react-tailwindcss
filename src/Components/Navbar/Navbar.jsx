@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiGrid } from "react-icons/fi";
+import { AiOutlineGoogle } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Hooks/AuthProvider";
 
@@ -23,9 +24,10 @@ const Navbar = () => {
         <div className="shadow-lg">
             <div className="max-w-7xl mx-auto">
                 <nav className="px-6 py-7 flex justify-between items-center">
-                    <div>
-                        <NavLink to='/' className='text-3xl font-semibold'>
-                            GrandCar
+                    <div className="flex items-center cursor-pointer">
+                        <AiOutlineGoogle className="text-4xl" />
+                        <NavLink to='/' className='text-3xl font-bold'>
+                            Car
                         </NavLink>
                     </div>
 
@@ -108,7 +110,7 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    <div className="hidden xl:block text-lg font-medium">
+                    <div className="hidden lg:block text-lg font-medium">
                         {
                             user ? <>
                                 <div className="flex justify-center items-center gap-4 cursor-pointer">

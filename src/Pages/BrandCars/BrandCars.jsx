@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import BrandCarsCard from "../../Components/BrandCarsCard/BrandCarsCard";
 
 const BrandCars = () => {
@@ -24,10 +24,10 @@ const BrandCars = () => {
 
     return (
         <div className="" data-aos="fade-up"
-        data-aos-duration="1000">
+            data-aos-duration="1000">
 
             {
-                cars.length && <>
+                cars.length > 0 && <>
                     <div className="carousel w-full mt-5 shadow-lg">
                         <div id="slide1" className="carousel-item relative w-full h-72 md:h-96">
                             <img src={carsPhoto[1]} className="w-full h-full object-cover relative" />
@@ -83,16 +83,33 @@ const BrandCars = () => {
             }
 
             <div className="max-w-7xl mx-auto px-6">
-                <p className="text-lg mb-5 px-3 pt-14">
+                <p className="text-lg mb-5 px-3 py-14">
                     Showing all {cars.length} results for ({brandName})
                 </p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 pt-14 pb-28">
+                <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-5 ${cars.length > 0 && 'pb-28'}`}>
                     {
                         cars.map(car => <BrandCarsCard key={car._id} car={car} />)
                     }
                 </div>
             </div>
+
+            {
+                cars.length === 0 && (
+                    <div className="pb-28">
+                        <p className="text-[#7a63f1] text-3xl font-semibold mb-4 text-center">
+                            There is no product here.
+                        </p>
+                        <NavLink to='/addnew'>
+                            <div className="flex justify-center">
+                                <button className="text-lg bg-[#7a63f1] px-8 py-4 rounded-xl text-white font-medium">
+                                    Add new
+                                </button>
+                            </div>
+                        </NavLink>
+                    </div>
+                )
+            }
         </div>
     );
 };

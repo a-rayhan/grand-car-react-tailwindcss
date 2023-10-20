@@ -10,11 +10,13 @@ import CarDetails from "../Pages/CarDetails/CarDetails";
 import BrandCategory from "../Components/BrandCategory/BrandCategory";
 import BrandCars from "../Pages/BrandCars/BrandCars";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayouts />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
